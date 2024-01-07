@@ -1,0 +1,122 @@
+@import "index";
+$Linear-gradient-active-input-border: hsl(249, 99%, 64%);
+$to: hsl(278, 94%, 30%);
+$Red-input-errors: hsl(0, 100%, 66%);
+//  Neutral
+$White: hsl(0, 0%, 100%);
+$Light-grayish-violet: hsl(270, 3%, 87%);
+$Dark-grayish-violet: hsl(279, 6%, 55%);
+$Very-dark-violet: hsl(278, 68%, 11%);
+*::placeholder {
+  font-size: 1.125rem;
+}
+
+body {
+  min-height: 100svh;
+  font-size: 18px;
+  font-family: "Space Grotesk", sans-serif;
+  .main {
+    .cards__container {
+      position: relative;
+      height: 15rem;
+      background: url(./images/bg-main-mobile.png) center/cover no-repeat;
+      @include place__item__center;
+      .back__card {
+        width: 18rem;
+        height: 10rem;
+        background: url(./images/bg-card-back.png) no-repeat;
+        background-size: cover;
+        border-radius: 0.5rem;
+        translate: 1.5rem -0.5rem;
+        @include place__item__center;
+        .cvc__output {
+          color: white;
+          translate: 6.7rem;
+          font-size: 0.5rem;
+          letter-spacing: 0.1rem;
+        }
+      }
+      .front__card {
+        color: $White;
+        padding: 1rem;
+        display: grid;
+        gap: 2rem;
+        position: absolute;
+        left: 1rem;
+        bottom: -2.7rem;
+        width: 18rem;
+        height: 10rem;
+        background: url(./images/bg-card-front.png) no-repeat;
+        background-size: cover;
+        border-radius: 0.5rem;
+        letter-spacing: 0.15rem;
+        .name__month {
+          letter-spacing: 0.06rem;
+          text-transform: uppercase;
+          font-size: 0.8rem;
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+      img {
+        width: 3rem;
+      }
+    }
+  }
+  .form {
+    height: 30rem;
+    padding: 5.5rem 1.5rem 0;
+    @include flex__column;
+    gap: 1.3rem;
+    .input__box {
+      display: grid;
+      gap: 0.5rem;
+      .name__label,
+      .number__label {
+        color: $Very-dark-violet;
+      }
+      .card__name,
+      .card__number {
+        padding: 1rem;
+        @include input__styles;
+      }
+
+      &:nth-of-type(3) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        .month__box {
+          display: grid;
+          gap: 0.5rem;
+          grid-template-columns: repeat(2, 5rem);
+          &:first-child {
+            font-size: 1.1rem;
+          }
+          .month,
+          .year {
+            height: 3rem;
+            text-align: center;
+            @include input__styles;
+          }
+        }
+        .cvc__box {
+          .cvc {
+            width: 100%;
+            height: 3rem;
+            padding: 1rem;
+            margin-top: 0.4rem;
+            @include input__styles;
+          }
+        }
+      }
+    }
+    button {
+      padding: 1rem;
+      color: $White;
+      background: $Very-dark-violet;
+      outline: none;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+  }
+}
